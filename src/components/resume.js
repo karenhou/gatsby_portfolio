@@ -86,7 +86,7 @@ const resume = () => {
     )
   })
   return (
-    <Wrapper id="resume">
+    <Wrapper id="experience">
       <Typography variant="h2" style={{ textAlign: 'center' }} color="primary">
         Experience
       </Typography>

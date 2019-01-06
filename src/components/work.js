@@ -55,7 +55,7 @@ class work extends Component {
       <Container>
         <div className={classes.wrapper}>
           <Typography
-            id="work"
+            id="projects"
             variant="h2"
             align="center"
             className={classes.title}
@@ -81,13 +81,13 @@ class work extends Component {
                           >
                             {projectInfo[index].name}
                           </a>{' '}
-                          <Typography
-                            variant="h5"
-                            color="primary"
-                            style={{ color: 'white' }}
-                          >
-                            {projectInfo[index].deployed}
-                          </Typography>
+                        </Typography>
+                        <Typography
+                          variant="h5"
+                          color="primary"
+                          style={{ color: 'white' }}
+                        >
+                          {projectInfo[index].deployed}
                         </Typography>
                       </Grid>
                       <Grid item>
@@ -96,9 +96,10 @@ class work extends Component {
                         </Typography>
                       </Grid>
                       <Grid item>
-                        {projectInfo[index].tools.map(tool => {
+                        {projectInfo[index].tools.map((tool, i) => {
                           return (
                             <Button
+                              key={i}
                               variant="contained"
                               color="primary"
                               className={classes.btn}
