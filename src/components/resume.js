@@ -6,150 +6,93 @@ import {
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
 
-import { withStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
+import './resume.css'
+import { educationInfo, experienceInfo } from '../data/resumeInfo'
 
 const Wrapper = styled.div`
   padding-top: 3em;
+  background: #252222;
 `
 
 const resume = () => {
+  let eduContent = educationInfo.map((edu, index) => {
+    return (
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date={moment.utc(edu.graduated).format('YYYY-MM-DD')}
+        iconStyle={{ background: '#ffa500', color: '#white' }}
+        key={index}
+      >
+        <Typography
+          className="vertical-timeline-element-title"
+          color="primary"
+          variant="h3"
+        >
+          {edu.school}
+        </Typography>
+        <Typography
+          className="vertical-timeline-element-subtitle"
+          variant="h4"
+          color="secondary"
+        >
+          {edu.certificate}
+          {edu.major !== '' ? ', ' + edu.major : null}
+        </Typography>
+        <Typography
+          className="vertical-timeline-element-subtitle"
+          variant="h5"
+          color="textSecondary"
+        >
+          {edu.location}
+        </Typography>
+      </VerticalTimelineElement>
+    )
+  })
+  let expContent = experienceInfo.map((exp, index) => {
+    return (
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date={moment.utc(exp.to).format('YYYY-MM-DD')}
+        iconStyle={{ background: '#ffa500', color: '#white' }}
+        key={index}
+      >
+        <Typography
+          className="vertical-timeline-element-title"
+          color="primary"
+          variant="h3"
+        >
+          {exp.company}
+        </Typography>
+        <Typography
+          className="vertical-timeline-element-subtitle"
+          variant="h4"
+          color="secondary"
+        >
+          {exp.title}
+        </Typography>
+        <Typography
+          className="vertical-timeline-element-subtitle"
+          variant="h5"
+          color="textSecondary"
+        >
+          {exp.location}
+        </Typography>
+        <Typography className="vertical-timeline-element-subtitle" variant="h6">
+          Skills: {exp.skills.join(', ')}
+        </Typography>
+      </VerticalTimelineElement>
+    )
+  })
   return (
     <Wrapper id="resume">
-      <Typography variant="h2" style={{ textAlign: 'center' }}>
-        Resume Page
+      <Typography variant="h2" style={{ textAlign: 'center' }} color="primary">
+        Experience
       </Typography>
       <VerticalTimeline>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date={moment.utc('20150128').format('YYYY-MM-DD')}
-          iconStyle={{ background: '#80cbc4', color: '#00796b' }}
-        >
-          <Typography
-            className="vertical-timeline-element-title"
-            color="primary"
-            variant="h5"
-          >
-            test1
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-            color="secondary"
-          >
-            test2
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            {/* <i className="fas fa-hotel" style={{ marginRight: '5px' }} /> */}
-            test3
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            test4
-          </Typography>
-          <Button
-            // component={Link}
-            // to={`/trips/${trip._id}/${day._id}/details`}
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Details...
-          </Button>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date={moment.utc('20150129').format('YYYY-MM-DD')}
-          iconStyle={{ background: '#80cbc4', color: '#00796b' }}
-        >
-          <Typography
-            className="vertical-timeline-element-title"
-            color="primary"
-            variant="h5"
-          >
-            test1
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-            color="secondary"
-          >
-            test2
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            {/* <i className="fas fa-hotel" style={{ marginRight: '5px' }} /> */}
-            test3
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            test4
-          </Typography>
-          <Button
-            // component={Link}
-            // to={`/trips/${trip._id}/${day._id}/details`}
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Details...
-          </Button>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date={moment.utc('20150201').format('YYYY-MM-DD')}
-          iconStyle={{ background: '#80cbc4', color: '#00796b' }}
-        >
-          <Typography
-            className="vertical-timeline-element-title"
-            color="primary"
-            variant="h5"
-          >
-            test1
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-            color="secondary"
-          >
-            test2
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            {/* <i className="fas fa-hotel" style={{ marginRight: '5px' }} /> */}
-            test3
-          </Typography>
-          <Typography
-            className="vertical-timeline-element-subtitle"
-            variant="subtitle1"
-          >
-            test4
-          </Typography>
-          <Button
-            // component={Link}
-            // to={`/trips/${trip._id}/${day._id}/details`}
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Details...
-          </Button>
-        </VerticalTimelineElement>
+        {expContent}
+        {eduContent}
       </VerticalTimeline>
     </Wrapper>
   )

@@ -1,53 +1,96 @@
-import React from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import React, { Component } from 'react'
+import styled from 'styled-components'
 import Container from './container'
 import Typography from '@material-ui/core/Typography'
+import { Spring, config } from 'react-spring'
+import Typist from 'react-typist'
+import { auto } from 'async'
 
 const ViewHeight = styled.div`
-  /* height: 100vh; */
-  font-size: 30px;
-  padding-top: 5em;
-  color: white;
+  padding-top: 11em;
+  text-align: center;
 `
 
 const Background = styled.div`
-  background-image: url('https://source.unsplash.com/Ye6rupMjAWk/1600x800');
-  height: 100vh;
-`
-const typing = keyframes`
-  from { width: 0 }
-  to { width: 100% }
-`
-const blinkingCursor = keyframes`
-  from, to { border-color: transparent }
-  50% { border-color: orange }
+  background: #252222;
+  height: 91vh;
 `
 
-const Typewrite = styled.h1`
-  font-family: monospace;
-  letter-spacing: 0.15em;
-  margin: 1em auto;
-  overflow: auto;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-align: center;
-  border-right: 0.15em solid orange;
-  animation: ${typing} 3.5s steps(40, end),
-    ${blinkingCursor} 0.5s step-end infinite;
+const Wrapper = styled.div`
+  margin-top: 2em;
 `
 
-const landing = () => {
-  return (
-    <Background>
-      <Container>
-        <ViewHeight>
-          <Typography id="home" variant="h2" color="secondary">
-            Hello!
-          </Typography>
-          <Typewrite>My name is Karen</Typewrite>
-        </ViewHeight>
-      </Container>
-    </Background>
-  )
+export default class landing extends Component {
+  render() {
+    return (
+      <Background>
+        <Container>
+          <ViewHeight>
+            <Spring
+              id="home"
+              config={config.slow}
+              from={{ opacity: 0 }}
+              to={{ opacity: 1 }}
+            >
+              {props => (
+                <Typography variant="h1" style={props} color="primary">
+                  Hello!
+                </Typography>
+              )}
+            </Spring>
+            <Wrapper>
+              <Typist cursor={{ hideWhenDone: true }}>
+                <Typography
+                  variant="h1"
+                  color="primary"
+                  style={{
+                    display: 'inline',
+                    color: 'white',
+                  }}
+                  gutterBottom={true}
+                >
+                  I've developed
+                </Typography>
+                <br />
+                <Typography
+                  variant="h1"
+                  color="primary"
+                  gutterBottom={true}
+                  style={{ display: 'inline', margin: auto }}
+                >
+                  websites
+                </Typography>
+                <Typist.Backspace count={8} delay={200} />
+                <Typography
+                  variant="h1"
+                  color="primary"
+                  style={{ display: 'inline' }}
+                >
+                  products
+                </Typography>
+                <Typist.Backspace count={8} delay={200} />
+                <Typography
+                  variant="h1"
+                  color="primary"
+                  style={{ display: 'inline' }}
+                  gutterBottom={true}
+                >
+                  fears for human interactions
+                </Typography>
+                <Typist.Backspace count={28} delay={100} />
+                <Typography
+                  variant="h1"
+                  color="primary"
+                  style={{ display: 'inline' }}
+                  gutterBottom={true}
+                >
+                  passion for creativity
+                </Typography>
+              </Typist>
+            </Wrapper>
+          </ViewHeight>
+        </Container>
+      </Background>
+    )
+  }
 }
-export default landing

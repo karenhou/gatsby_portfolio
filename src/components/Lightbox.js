@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid'
 
 export default class Lightbox extends Component {

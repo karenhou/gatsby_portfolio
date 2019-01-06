@@ -10,14 +10,15 @@ import {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#4DD0E1',
+      main: '#ffa500',
     },
     secondary: {
-      main: '#FFE0B2',
+      main: '#252222',
     },
   },
   typography: {
     useNextVariants: true,
+    fontFamily: "'Gochi Hand', cursive",
   },
 })
 

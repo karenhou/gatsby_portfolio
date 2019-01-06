@@ -1,0 +1,38 @@
+.vertical-timeline-element--work span {
+  color: white !important;
+}
+
+.vertical-timeline-element-content::before {
+  border: solid 1px #ddd;
+}
+.vertical-timeline-element-content {
+  border: solid 1px #ddd;
+  box-shadow: 0 0px;
+}
+.vertical-timeline.vertical-timeline--two-columns {
+  margin-top: 2em;
+}
+
+.vertical-timeline--two-columns
+  .vertical-timeline-element-content
+  .vertical-timeline-element-date {
+  position: absolute;
+  width: 100%;
+  left: 135%;
+  top: 6px;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.vertical-timeline--two-columns
+  .vertical-timeline-element.vertical-timeline-element--right
+  .vertical-timeline-element-content
+  .vertical-timeline-element-date,
+.vertical-timeline--two-columns
+  .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+  .vertical-timeline-element-content
+  .vertical-timeline-element-date {
+  left: auto;
+  right: 135%;
+  text-align: right;
+}

@@ -1,4 +1,5 @@
 const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `Karen Hou`,
@@ -17,7 +18,6 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -30,8 +30,12 @@ module.exports = {
         // icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 }

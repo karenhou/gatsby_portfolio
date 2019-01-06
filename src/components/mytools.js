@@ -1,19 +1,9 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Lightbox from './lightbox'
 import { Typography } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
-
-const Container = styled.div`
-  height: 100vh;
-  color: black;
-`
-const Temp = ({ data }) => {
-  return data.allFile.edges.map((file, index) => {
-    return <div key={index}>{file.node.name}</div>
-  })
-}
+import Container from './container'
 
 export default props => (
   <StaticQuery
@@ -37,17 +27,18 @@ export default props => (
     `}
     render={data => {
       return (
-        <>
+        <Container>
           <Typography
             variant="h2"
             style={{ textAlign: 'center', marginBottom: '0.6em' }}
+            id="mytools"
           >
             My Tools
           </Typography>
           <Grid container spacing={24} alignItems="center" justify="center">
             <Lightbox logoImages={data.logoImages.edges} />
           </Grid>
-        </>
+        </Container>
       )
     }}
   />

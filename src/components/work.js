@@ -1,55 +1,123 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
 
+import Container from './container'
 import Typography from '@material-ui/core/Typography'
+import { Transition } from 'react-spring'
+import Grid from '@material-ui/core/Grid'
+import { projectInfo } from '../data/projectInfo'
+import { Button } from '@material-ui/core'
 
 const styles = theme => ({
-  mypaper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: '25em',
-  },
-  media: {
-    height: '140px',
-    height: 0,
-    paddingTop: '56.25%', // 16:9,
-    marginTop: '30',
-  },
   title: {
-    marginTop: theme.spacing.unit * 8,
+    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 4,
+  },
+  wrapper: {
     marginBottom: theme.spacing.unit * 5,
+  },
+  paper: {
+    cursor: 'pointer',
+    background: '#252222',
+    padding: '2.5em',
+  },
+  btn: {
+    marginTop: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 4,
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'orange',
+    '&:hover': {
+      color: 'white',
+    },
   },
 })
 
-const ViewHeight = styled.div`
-  /* height: 100vh; */
-  text-align: center;
-  flex-grow: 1;
-`
+class work extends Component {
+  state = {
+    index: 0,
+  }
 
-const work = ({ classes }) => {
-  return (
-    <ViewHeight id="work">
-      <Typography variant="h2" className={classes.title}>
-        Work Page
-      </Typography>
-      <Grid container spacing={24}>
-        <Grid item xs={12} md={6} lg={4}>
-          <Paper className={classes.mypaper}>Work one</Paper>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <Paper className={classes.mypaper}>Work one</Paper>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <Paper className={classes.mypaper}>Work one</Paper>
-        </Grid>
-      </Grid>
-    </ViewHeight>
-  )
+  onClick = () => {
+    if (this.state.index === projectInfo.length - 1) {
+      this.setState({ index: 0 })
+    } else {
+      this.setState({ index: this.state.index + 1 })
+    }
+  }
+
+  render() {
+    const { classes } = this.props
+    const { index } = this.state
+    return (
+      <Container>
+        <div className={classes.wrapper}>
+          <Typography
+            id="work"
+            variant="h2"
+            align="center"
+            className={classes.title}
+          >
+            Projects
+          </Typography>
+          <div onClick={this.onClick}>
+            <Transition
+              key={index}
+              from={{ opacity: 0, transform: 'translate3d(0,100%,0)' }}
+              enter={{ opacity: 1, transform: 'translate3d(0,0%,0)' }}
+              leave={{ opacity: 0, transform: 'translate3d(0,-50%,0)' }}
+            >
+              {styles => styles => {
+                return (
+                  <Grid container spacing={24} className={classes.grid}>
+                    <Paper style={{ ...styles }} className={classes.paper}>
+                      <Grid item>
+                        <Typography variant="h3">
+                          <a
+                            className={classes.link}
+                            href={projectInfo[index].links}
+                          >
+                            {projectInfo[index].name}
+                          </a>{' '}
+                          <Typography
+                            variant="h5"
+                            color="primary"
+                            style={{ color: 'white' }}
+                          >
+                            {projectInfo[index].deployed}
+                          </Typography>
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography variant="h5" style={{ color: 'gray' }}>
+                          {projectInfo[index].description}
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        {projectInfo[index].tools.map(tool => {
+                          return (
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              className={classes.btn}
+                            >
+                              {tool}
+                            </Button>
+                          )
+                        })}
+                      </Grid>
+                    </Paper>
+                  </Grid>
+                )
+              }}
+            </Transition>
+          </div>
+        </div>
+      </Container>
+    )
+  }
 }
+
 export default withStyles(styles)(work)
