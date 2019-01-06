@@ -4,28 +4,24 @@ import Container from './container'
 import Typography from '@material-ui/core/Typography'
 import { Spring, config } from 'react-spring'
 import Typist from 'react-typist'
-import { auto } from 'async'
 
 const ViewHeight = styled.div`
+  height: 100vh;
   @media only screen and (min-width: 627px) {
-    padding-top: 8em;
-    padding-bottom: 7em;
+    padding-top: 6em;
     text-align: center;
   }
   @media only screen and (min-width: 401px) and (max-width: 626px) {
     padding-top: 8em;
-    padding-bottom: 7em;
     text-align: left;
-    height: 100vh;
     h1 {
       font-size: 60px;
     }
   }
   @media only screen and (max-width: 400px) {
-    padding-top: 4em;
-    padding-bottom: 7em;
+    padding-top: 5em;
     text-align: left;
-    height: 100vh;
+    height: 80vh;
     h1 {
       text-align: left;
       font-size: 60px;
@@ -36,13 +32,6 @@ const ViewHeight = styled.div`
 const Background = styled.div`
   max-width: 1440px;
   background: #252222;
-  /* height: auto; */
-  /* max-height: 100vh;
-  background: #252222; */
-  /* height: 100vh; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
 `
 
 export default class landing extends Component {

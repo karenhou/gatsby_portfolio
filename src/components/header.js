@@ -27,49 +27,47 @@ const styles = {
 const Header = ({ siteTitle, classes }) => {
   return (
     <>
-      <MediaQuery query="(min-device-width: 400px)">
-        <AppBar position="static" color="secondary">
-          <Toolbar variant="regular">
-            <MediaQuery query="(min-width: 820px)">
-              <Typography variant="h4" color="inherit" className={classes.grow}>
-                {siteTitle}
-              </Typography>
-              <Button
-                color="inherit"
-                component={Link}
-                to="/"
-                className={classes.btn}
-              >
-                Home
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                to="#work"
-                className={classes.btn}
-              >
-                Work
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                to="#resume"
-                className={classes.btn}
-              >
-                Experience
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                to="#mytools"
-                className={classes.btn}
-              >
-                Tools
-              </Button>
-            </MediaQuery>
-          </Toolbar>
-        </AppBar>
-      </MediaQuery>
+      <AppBar position="static" color="secondary">
+        <Toolbar variant="regular">
+          <MediaQuery query="(min-width: 820px)">
+            <Typography variant="h4" color="inherit" className={classes.grow}>
+              {siteTitle}
+            </Typography>
+            <Button
+              color="inherit"
+              component={Link}
+              to="/"
+              className={classes.btn}
+            >
+              Home
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to="#work"
+              className={classes.btn}
+            >
+              Work
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to="#resume"
+              className={classes.btn}
+            >
+              Experience
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to="#mytools"
+              className={classes.btn}
+            >
+              Tools
+            </Button>
+          </MediaQuery>
+        </Toolbar>
+      </AppBar>
     </>
   )
 }

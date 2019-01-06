@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import Header from './header'
 import styled from 'styled-components'
-import Sidebar from 'react-sidebar'
-import Typography from '@material-ui/core/Typography'
-import MediaQuery from 'react-responsive'
-import { Link } from 'gatsby'
-import Divider from '@material-ui/core/Divider'
+import HeadContainer from './headContainer'
 
 const Footer = styled.footer`
   font-size: large;
@@ -18,9 +13,12 @@ const Footer = styled.footer`
   background-color: #252222;
   color: white;
 `
+const FooterLink = styled.a`
+  color: orange;
+  text-decoration: none;
+`
 
 const Layout = ({ children }) => {
-  const [sideBar, setSideBar] = useState(false)
   return (
     <StaticQuery
       query={graphql`
@@ -33,109 +31,16 @@ const Layout = ({ children }) => {
         }
       `}
       render={data => (
-        <div>
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <MediaQuery query="(max-width: 819px)">
-            <div style={{ textAlign: 'center' }}>
-              <Sidebar
-                sidebar={
-                  <div
-                    style={{
-                      textAlign: 'left',
-                    }}
-                  >
-                    <Typography
-                      component={Link}
-                      to="/"
-                      variant="h3"
-                      style={{
-                        marginTop: '0.2em',
-                        marginBottom: '0.1em',
-                        marginLeft: '0.2em',
-                        color: 'black',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      Home
-                    </Typography>
-                    <Divider />
-                    <Typography
-                      component={Link}
-                      to="#projects"
-                      variant="h3"
-                      style={{
-                        marginTop: '0.2em',
-                        marginBottom: '0.1em',
-                        marginLeft: '0.2em',
-                        color: 'black',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      Projects
-                    </Typography>
-                    <Divider />
-                    <Typography
-                      component={Link}
-                      to="#experience"
-                      variant="h3"
-                      style={{
-                        marginTop: '0.2em',
-                        marginBottom: '0.1em',
-                        marginLeft: '0.2em',
-                        color: 'black',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      Experience
-                    </Typography>
-                    <Divider />
-                    <Typography
-                      component={Link}
-                      to="#mytools"
-                      variant="h3"
-                      style={{
-                        marginTop: '0.2em',
-                        marginBottom: '0.1em',
-                        marginLeft: '0.2em',
-                        color: 'black',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      Tools
-                    </Typography>
-                  </div>
-                }
-                open={sideBar}
-                onSetOpen={setSideBar}
-                styles={{
-                  sidebar: {
-                    background: 'orange',
-                    width: '250px',
-                  },
-                }}
-              >
-                <Typography
-                  variant="h3"
-                  onClick={() => setSideBar(true)}
-                  style={{
-                    marginTop: '0.5em',
-                    cursor: 'pointer',
-                    color: 'white',
-                  }}
-                >
-                  Karen Hou
-                </Typography>
-              </Sidebar>
-            </div>
-          </MediaQuery>
+        <>
+          <HeadContainer data={data} />
           {children}
           <Footer>
             © 2018, Built with{' '}
-            <a href="https://www.gatsbyjs.org" style={{ color: 'orange' }}>
-              Gatsby
-            </a>
+            <FooterLink href="https://www.gatsbyjs.org">Gatsby</FooterLink>
+            <br />
+            <FooterLink href="#home">Back to Top</FooterLink>
           </Footer>
-        </div>
+        </>
       )}
     />
   )
