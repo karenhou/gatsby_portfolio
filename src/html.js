@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import favicon from './favicon.ico'
 
 export default class HTML extends React.Component {
   render() {
@@ -23,6 +24,7 @@ export default class HTML extends React.Component {
             integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
             crossOrigin="anonymous"
           />
+          <link rel="shortcut icon" href={favicon} />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

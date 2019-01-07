@@ -78,7 +78,7 @@ class Projects extends Component {
     const { classes } = this.props
     const { index, from, leave } = this.state
     return (
-      <Container>
+      <Container id="projects">
         <div className={classes.wrapper}>
           <Typography
             id="projects"

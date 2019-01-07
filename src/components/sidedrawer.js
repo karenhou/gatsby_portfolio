@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
 import Divider from '@material-ui/core/Divider'
 import Sidebar from 'react-sidebar'
+import Logo from '../logo.png'
 
 export default function sidedrawer() {
   const [sideBar, setSideBar] = useState(false)
@@ -94,7 +95,11 @@ export default function sidedrawer() {
             color: 'white',
           }}
         >
-          Karen Hou
+          <img
+            style={{ marginTop: '12px', height: '80px', width: '80px' }}
+            src={Logo}
+            alt="logo"
+          />
         </Typography>
       </Sidebar>
     </div>

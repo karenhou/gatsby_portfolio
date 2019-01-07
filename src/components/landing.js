@@ -62,7 +62,7 @@ export default class landing extends Component {
                 variant="h1"
                 color="primary"
                 style={{
-                  // display: 'inline',
+                  display: 'inline',
                   color: 'white',
                 }}
                 gutterBottom={true}
@@ -78,7 +78,7 @@ export default class landing extends Component {
               >
                 websites
               </Typography>
-              <Typist.Backspace count={8} delay={200} />
+              <Typist.Backspace count={8} delay={100} />
               <Typography
                 variant="h1"
                 color="primary"
@@ -95,7 +95,7 @@ export default class landing extends Component {
               >
                 fears for human interactions
               </Typography>
-              <Typist.Backspace count={28} delay={100} />
+              <Typist.Backspace count={28} delay={200} />
               <Typography
                 variant="h1"
                 color="primary"
@@ -103,6 +103,14 @@ export default class landing extends Component {
                 gutterBottom={true}
               >
                 passion for creativity
+              </Typography>
+              <Typist.Backspace count={36} delay={200} />
+              <Typography
+                variant="h1"
+                style={{ display: 'inline', color: 'white' }}
+                gutterBottom={true}
+              >
+                I'm Karen Hou
               </Typography>
             </Typist>
           </ViewHeight>
