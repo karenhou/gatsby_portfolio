@@ -7,6 +7,14 @@ export default class HTML extends React.Component {
     return (
       <html {...this.props.htmlAttributes}>
         <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_TRACKING_ID');
+</script>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
@@ -24,6 +32,7 @@ export default class HTML extends React.Component {
             integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
             crossOrigin="anonymous"
           />
+          <meta name="google-site-verification" content="I2mXDTl_4TNEeytIiKhwouRVKq9a3EVaOJySdVitOeg" />
           <link rel="shortcut icon" href={favicon} />
         </head>
         <body {...this.props.bodyAttributes}>
