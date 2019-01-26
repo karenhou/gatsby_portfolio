@@ -18,7 +18,7 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: "'Gochi Hand', cursive",
+    fontFamily: "'Archivo Black', sans-serif",
   },
 })
 

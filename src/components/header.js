@@ -20,10 +20,11 @@ const styles = {
     },
   },
   img: {
-    marginTop: '12px',
+    marginTop: '10px',
     height: '60px',
     width: '60px',
     flexGrow: 1,
+    marginBottom: '0',
   },
 }
 
@@ -31,6 +32,11 @@ const Header = ({ siteTitle, classes }) => {
   return (
     <AppBar position="static" color="secondary">
       <Toolbar variant="regular">
+        <MediaQuery query="(max-width: 819px)">
+          <div style={{ textAlign: 'right', width: '100%' }}>
+            <i className="fas fa-bars fa-2x" />
+          </div>
+        </MediaQuery>
         <MediaQuery query="(min-width: 820px)">
           <Link to="/" style={{ flexGrow: 1 }}>
             <img className={classes.img} src={Logo} alt={siteTitle} />

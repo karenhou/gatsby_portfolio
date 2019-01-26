@@ -78,14 +78,6 @@ export default class landing extends Component {
               >
                 websites
               </Typography>
-              <Typist.Backspace count={8} delay={100} />
-              <Typography
-                variant="h1"
-                color="primary"
-                style={{ display: 'inline' }}
-              >
-                products
-              </Typography>
               <Typist.Backspace count={8} delay={200} />
               <Typography
                 variant="h1"

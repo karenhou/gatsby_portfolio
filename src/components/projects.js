@@ -139,7 +139,10 @@ class Projects extends Component {
                             className={classes.paper}
                           >
                             <Grid item>
-                              <Typography variant="h3">
+                              <Typography
+                                variant="h3"
+                                style={{ marginBottom: '0.2em' }}
+                              >
                                 <a
                                   className={classes.link}
                                   href={nodes[index].url}

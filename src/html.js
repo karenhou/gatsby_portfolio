@@ -19,7 +19,7 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
           <link
-            href="https://fonts.googleapis.com/css?family=Gochi+Hand"
+            href="https://fonts.googleapis.com/css?family=Archivo+Black"
             rel="stylesheet"
           />
           <link

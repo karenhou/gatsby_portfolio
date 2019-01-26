@@ -18,7 +18,7 @@ export default function sidedrawer() {
             <Typography
               component={Link}
               to="/"
-              variant="h3"
+              variant="h4"
               style={{
                 marginTop: '0.2em',
                 marginBottom: '0.1em',
@@ -33,7 +33,7 @@ export default function sidedrawer() {
             <Typography
               component={Link}
               to="#projects"
-              variant="h3"
+              variant="h4"
               style={{
                 marginTop: '0.2em',
                 marginBottom: '0.1em',
@@ -48,7 +48,7 @@ export default function sidedrawer() {
             <Typography
               component={Link}
               to="#experience"
-              variant="h3"
+              variant="h4"
               style={{
                 marginTop: '0.2em',
                 marginBottom: '0.1em',
@@ -63,7 +63,7 @@ export default function sidedrawer() {
             <Typography
               component={Link}
               to="#mytools"
-              variant="h3"
+              variant="h4"
               style={{
                 marginTop: '0.2em',
                 marginBottom: '0.1em',
