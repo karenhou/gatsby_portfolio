@@ -18,7 +18,7 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: "'Archivo Black', sans-serif",
+    fontFamily: "'Pontano Sans', sans-serif",
   },
 })
 
