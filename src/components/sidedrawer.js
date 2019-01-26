@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import Typography from '@material-ui/core/Typography'
+import { Typography, Divider } from '@material-ui/core'
 import { Link } from 'gatsby'
-import Divider from '@material-ui/core/Divider'
 import Sidebar from 'react-sidebar'
 import Logo from '../logo.png'
 

@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Lightbox from './Lightbox'
-import { Typography } from '@material-ui/core'
-import Grid from '@material-ui/core/Grid'
+import { Typography, Grid } from '@material-ui/core'
 import Container from './container'
 
 export default props => (

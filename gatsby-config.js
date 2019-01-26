@@ -1,4 +1,7 @@
 const path = require('path')
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -16,6 +19,22 @@ module.exports = {
       options: {
         name: `images`,
         path: path.join(__dirname, `src`, `images`),
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        // Url to query from
+        url: 'https://api.github.com/graphql',
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.app/env-vars
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        // Additional options to pass to node-fetch
+        fetchOptions: {},
       },
     },
     {

@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-
 import Container from './container'
-import Typography from '@material-ui/core/Typography'
 import { Transition } from 'react-spring'
-import Grid from '@material-ui/core/Grid'
-import { projectInfo } from '../data/projectInfo'
-import Chip from '@material-ui/core/Chip'
+import { Chip, Grid, Typography, Paper } from '@material-ui/core'
+import { StaticQuery, graphql } from 'gatsby'
 
 const mystyles = theme => ({
   title: {
@@ -22,7 +18,7 @@ const mystyles = theme => ({
   paper: {
     background: '#252222',
     padding: '2.5em',
-    maxHeight: '400px',
+    maxHeight: '500px',
   },
   btn: {
     marginTop: theme.spacing.unit * 2,
@@ -50,25 +46,25 @@ class Projects extends Component {
     leave: '',
   }
 
-  onClickLeft = () => {
+  onClickLeft = len => {
     this.setState({
       from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
       leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
     })
-    if (this.state.index === projectInfo.length - 1) {
+    if (this.state.index === len - 1) {
       this.setState({ index: 0 })
     } else {
       this.setState({ index: this.state.index + 1 })
     }
   }
 
-  onClickRight = () => {
+  onClickRight = len => {
     this.setState({
       from: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
       leave: { opacity: 0, transform: 'translate3d(100%,0,0)' },
     })
     if (this.state.index === 0) {
-      this.setState({ index: projectInfo.length - 1 })
+      this.setState({ index: len - 1 })
     } else {
       this.setState({ index: this.state.index - 1 })
     }
@@ -77,85 +73,119 @@ class Projects extends Component {
   render() {
     const { classes } = this.props
     const { index, from, leave } = this.state
+
     return (
-      <Container id="projects">
-        <div className={classes.wrapper}>
-          <Typography
-            id="projects"
-            variant="h2"
-            align="center"
-            className={classes.title}
-          >
-            Projects
-          </Typography>
-          <Grid container spacing={24} justify="center" alignItems="center">
-            <Grid
-              item
-              lg={2}
-              onClick={this.onClickLeft}
-              style={{ textAlign: 'center' }}
-            >
-              <i className="fas fa-angle-left" />
-            </Grid>
-            <Grid item lg={8}>
-              <Transition
-                key={index}
-                from={from}
-                enter={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-                leave={leave}
-              >
-                {styles => styles => {
-                  return (
-                    <Paper style={{ ...styles }} className={classes.paper}>
-                      <Grid item>
-                        <Typography variant="h3">
-                          <a
-                            className={classes.link}
-                            href={projectInfo[index].links}
+      <StaticQuery
+        query={graphql`
+          query {
+            github {
+              repositoryOwner(login: "karenhou") {
+                pinnedRepositories(first: 6) {
+                  nodes {
+                    name
+                    description
+                    url
+                    homepageUrl
+                    repositoryTopics(first: 5) {
+                      nodes {
+                        topic {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `}
+        render={data => {
+          const { nodes } = data.github.repositoryOwner.pinnedRepositories
+          return (
+            <Container id="projects">
+              <div className={classes.wrapper}>
+                <Typography
+                  id="projects"
+                  variant="h2"
+                  align="center"
+                  className={classes.title}
+                >
+                  Projects
+                </Typography>
+                <Grid
+                  container
+                  spacing={24}
+                  justify="center"
+                  alignItems="center"
+                >
+                  <Grid
+                    item
+                    onClick={() => this.onClickLeft(nodes.length)}
+                    style={{ textAlign: 'center' }}
+                  >
+                    <i className="fas fa-angle-left" />
+                  </Grid>
+                  <Grid item xs={12} sm={10} md={8}>
+                    <Transition
+                      key={index}
+                      from={from}
+                      enter={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                      leave={leave}
+                    >
+                      {styles => styles => {
+                        return (
+                          <Paper
+                            style={{ ...styles, height: '100%' }}
+                            className={classes.paper}
                           >
-                            {projectInfo[index].name}
-                          </a>{' '}
-                        </Typography>
-                        <Typography
-                          variant="h5"
-                          color="primary"
-                          style={{ color: 'white' }}
-                        >
-                          {projectInfo[index].deployed}
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="h5" style={{ color: 'gray' }}>
-                          {projectInfo[index].description}
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        {projectInfo[index].tools.map((tool, i) => {
-                          return (
-                            <Chip
-                              key={i}
-                              label={tool}
-                              className={classes.chip}
-                            />
-                          )
-                        })}
-                      </Grid>
-                    </Paper>
-                  )
-                }}
-              </Transition>
-            </Grid>
-            <Grid
-              item
-              onClick={this.onClickRight}
-              lg={2}
-              style={{ textAlign: 'center' }}
-            >
-              <i className="fas fa-angle-right" />
-            </Grid>
-          </Grid>
-        </div>
-      </Container>
+                            <Grid item>
+                              <Typography variant="h3">
+                                <a
+                                  className={classes.link}
+                                  href={nodes[index].url}
+                                >
+                                  {nodes[index].name}
+                                </a>{' '}
+                              </Typography>
+                              <Typography
+                                variant="h5"
+                                color="primary"
+                                style={{ color: 'white' }}
+                              >
+                                {nodes[index].description}
+                              </Typography>
+                            </Grid>
+                            <Grid item>
+                              {nodes[index].repositoryTopics.nodes.map(
+                                (d, i) => {
+                                  return (
+                                    <Chip
+                                      key={i}
+                                      label={d.topic.name}
+                                      className={classes.chip}
+                                    />
+                                  )
+                                },
+                              )}
+                            </Grid>
+                          </Paper>
+                        )
+                      }}
+                    </Transition>
+                  </Grid>
+                  <Grid
+                    item
+                    onClick={() => this.onClickRight(nodes.length)}
+                    style={{ textAlign: 'center' }}
+                  >
+                    <i className="fas fa-angle-right" />
+                  </Grid>
+                </Grid>
+              </div>
+            </Container>
+          )
+        }}
+      />
     )
   }
 }

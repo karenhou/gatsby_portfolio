@@ -10,7 +10,10 @@ import withRoot from '../withRoot'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Home"
+      keywords={[`gatsby`, `application`, `react`, `portfolio`, `githubAPI`]}
+    />
     <Landing />
     <Projects />
     <Resume />
