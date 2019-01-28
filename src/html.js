@@ -17,6 +17,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          {/* <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          /> */}
           {this.props.headComponents}
           <link
             href="https://fonts.googleapis.com/css?family=Pontano+Sans"
@@ -33,8 +37,10 @@ export default class HTML extends React.Component {
             content="I2mXDTl_4TNEeytIiKhwouRVKq9a3EVaOJySdVitOeg"
           />
           <link rel="shortcut icon" href={favicon} />
+          <title>Karen Hou's Portfolio</title>
         </head>
         <body {...this.props.bodyAttributes}>
+          <noscript>You need to enable JavaScript to run this app.</noscript>
           {this.props.preBodyComponents}
           <div
             key={`body`}

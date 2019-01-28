@@ -41,13 +41,19 @@ const Layout = ({ children }) => {
             <FooterLink href="#home">Back to Top</FooterLink>
             <p style={{ marginBottom: 0 }}>Find me @ following</p>
             <div style={{ marginTop: '0.2em' }}>
-              <FooterLink href="https://github.com/karenhou">
+              <FooterLink
+                href="https://github.com/karenhou"
+                aria-label="Github"
+              >
                 <i className="fab fa-github" style={{ marginRight: '1em' }} />
               </FooterLink>
-              <FooterLink href="https://www.linkedin.com/in/karen-hou-6a407069/">
+              <FooterLink
+                href="https://www.linkedin.com/in/karen-hou-6a407069/"
+                aria-label="LinkedIn"
+              >
                 <i className="fab fa-linkedin" style={{ marginRight: '1em' }} />
               </FooterLink>
-              <FooterLink href="mailto:ymcl760728@gmail.com">
+              <FooterLink href="mailto:ymcl760728@gmail.com" aria-label="Email">
                 <i className="fas fa-envelope" />
               </FooterLink>
             </div>
