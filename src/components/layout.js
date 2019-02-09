@@ -18,6 +18,8 @@ const FooterLink = styled.a`
   text-decoration: none;
 `
 
+const year = new Date().getFullYear()
+
 const Layout = ({ children }) => {
   return (
     <StaticQuery
@@ -35,7 +37,7 @@ const Layout = ({ children }) => {
           <HeadContainer data={data} />
           {children}
           <Footer>
-            © 2018, Built with{' '}
+            © {year}, Built with{' '}
             <FooterLink href="https://www.gatsbyjs.org">Gatsby</FooterLink>
             <br />
             <FooterLink href="#home">Back to Top</FooterLink>

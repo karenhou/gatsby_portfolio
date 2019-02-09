@@ -11,7 +11,7 @@ const styles = {
     flexGrow: 1,
   },
   btn: {
-    fontSize: 'x-large',
+    fontSize: 'large',
     borderRadius: 0,
     marginRight: '2em',
     '&:hover': {

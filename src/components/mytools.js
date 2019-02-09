@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import Lightbox from './Lightbox'
+import Lightbox from './lightbox'
 import { Typography, Grid } from '@material-ui/core'
 import Container from './container'
 
