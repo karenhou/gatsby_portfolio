@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
                 <i className="fab fa-github" style={{ marginRight: '1em' }} />
               </FooterLink>
               <FooterLink
-                href="https://www.linkedin.com/in/karen-hou-6a407069/"
+                href="https://www.linkedin.com/in/khou"
                 aria-label="LinkedIn"
               >
                 <i className="fab fa-linkedin" style={{ marginRight: '1em' }} />

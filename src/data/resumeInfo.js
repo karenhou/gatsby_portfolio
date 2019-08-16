@@ -1,5 +1,13 @@
 export const experienceInfo = [
   {
+    company: 'Young March Corporation',
+    location: 'China',
+    from: '2017-04',
+    to: '2019-08',
+    title: 'Associate Manager',
+    skills: ['Export cargos', 'monitor production', 'assist GM'],
+  },
+  {
     company: 'Quanta Computer Corporation',
     location: 'Taipei, Taiwan',
     from: '2013-09',
@@ -30,7 +38,7 @@ export const experienceInfo = [
       '3G',
       '4G',
       'Android RIL',
-      'Embeded Linux',
+      'Embedded Linux',
       'Product development',
       'Debug',
       'Schematics',
@@ -53,12 +61,5 @@ export const educationInfo = [
     certificate: 'B.S',
     major: 'Computer Science',
     graduated: '2010-05',
-  },
-  {
-    school: 'Robert Bateman Secondary School',
-    location: 'Vancouver, Canada',
-    certificate: 'secondary education',
-    major: '',
-    graduated: '2006-06',
   },
 ]

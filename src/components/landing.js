@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Container from './container'
 import Typography from '@material-ui/core/Typography'
@@ -30,84 +30,84 @@ const ViewHeight = styled.div`
 `
 
 const Background = styled.div`
-  max-width: 1440px;
+  max-width: 1920px;
   background: #252222;
 `
 
-export default class landing extends Component {
-  render() {
-    return (
-      <Background>
-        <Container>
-          <ViewHeight>
-            <Spring
-              id="home"
-              config={config.slow}
-              from={{ opacity: 0 }}
-              to={{ opacity: 1 }}
+const Landing = () => {
+  return (
+    <Background>
+      <Container>
+        <ViewHeight>
+          <Spring
+            id="home"
+            config={config.slow}
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+          >
+            {props => (
+              <Typography
+                variant="h1"
+                style={props}
+                color="primary"
+                gutterBottom={true}
+              >
+                Hello!
+              </Typography>
+            )}
+          </Spring>
+          <Typist cursor={{ hideWhenDone: true }}>
+            <Typography
+              variant="h1"
+              color="primary"
+              style={{
+                display: 'inline',
+                color: 'white',
+              }}
+              gutterBottom={true}
             >
-              {props => (
-                <Typography
-                  variant="h1"
-                  style={props}
-                  color="primary"
-                  gutterBottom={true}
-                >
-                  Hello!
-                </Typography>
-              )}
-            </Spring>
-            <Typist cursor={{ hideWhenDone: true }}>
-              <Typography
-                variant="h1"
-                color="primary"
-                style={{
-                  display: 'inline',
-                  color: 'white',
-                }}
-                gutterBottom={true}
-              >
-                I've developed
-              </Typography>
-              <br />
-              <Typography
-                variant="h1"
-                color="primary"
-                gutterBottom={true}
-                style={{ display: 'inline' }}
-              >
-                websites
-              </Typography>
-              <Typist.Backspace count={8} delay={200} />
-              <Typography
-                variant="h1"
-                color="primary"
-                style={{ display: 'inline' }}
-                gutterBottom={true}
-              >
-                fears for human interactions
-              </Typography>
-              <Typist.Backspace count={28} delay={200} />
-              <Typography
-                variant="h1"
-                color="primary"
-                style={{ display: 'inline' }}
-                gutterBottom={true}
-              >
-                passion for creativity
-              </Typography>
-              <Typist.Backspace count={36} delay={200} />
-              <Typography
-                variant="h1"
-                style={{ display: 'inline', color: 'white' }}
-                gutterBottom={true}
-              >
-                I'm Karen Hou
-              </Typography>
-            </Typist>
-          </ViewHeight>
-        </Container>
-      </Background>
-    )
-  }
+              I've developed
+            </Typography>
+            <br />
+            <Typography
+              variant="h1"
+              color="primary"
+              gutterBottom={true}
+              style={{ display: 'inline' }}
+            >
+              websites
+            </Typography>
+            <Typist.Backspace count={8} delay={200} />
+            <Typography
+              variant="h1"
+              color="primary"
+              style={{ display: 'inline' }}
+              gutterBottom={true}
+            >
+              fears for human interactions
+            </Typography>
+            <Typist.Backspace count={28} delay={200} />
+            <Typography
+              variant="h1"
+              color="primary"
+              style={{ display: 'inline' }}
+              gutterBottom={true}
+            >
+              passion for creativity
+            </Typography>
+            <Typist.Backspace count={36} delay={200} />
+            <Typography
+              variant="h1"
+              style={{ display: 'inline', color: 'white' }}
+              gutterBottom={true}
+            >
+              I'm Karen Hou
+            </Typography>
+          </Typist>
+        </ViewHeight>
+      </Container>
+    </Background>
+  )
 }
+
+export default Landing

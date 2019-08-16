@@ -52,7 +52,7 @@ const Header = ({ siteTitle, classes }) => {
           <Button
             color="inherit"
             component={Link}
-            to="#projects"
+            to="/#projects"
             className={classes.btn}
           >
             Projects
@@ -60,7 +60,7 @@ const Header = ({ siteTitle, classes }) => {
           <Button
             color="inherit"
             component={Link}
-            to="#experience"
+            to="/#experience"
             className={classes.btn}
           >
             Experience
@@ -68,7 +68,7 @@ const Header = ({ siteTitle, classes }) => {
           <Button
             color="inherit"
             component={Link}
-            to="#mytools"
+            to="/#mytools"
             className={classes.btn}
           >
             Tools
