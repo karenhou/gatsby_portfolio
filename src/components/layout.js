@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
             © {year}, Built with{' '}
             <FooterLink href="https://www.gatsbyjs.org">Gatsby</FooterLink>
             <br />
-            <FooterLink href="#home">Back to Top</FooterLink>
+            <FooterLink href="/#home">Back to Top</FooterLink>
             <p style={{ marginBottom: 0 }}>Find me @ following</p>
             <div style={{ marginTop: '0.2em' }}>
               <FooterLink

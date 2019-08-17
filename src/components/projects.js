@@ -7,11 +7,11 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const mystyles = theme => ({
   title: {
-    marginTop: theme.spacing.unit * 4,
-    marginBottom: theme.spacing.unit * 4,
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
   wrapper: {
-    marginBottom: theme.spacing.unit * 5,
+    marginBottom: theme.spacing(5),
     overflowX: 'hidden',
     overflowY: 'hidden',
   },
@@ -21,8 +21,8 @@ const mystyles = theme => ({
     maxHeight: '500px',
   },
   btn: {
-    marginTop: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 4,
+    marginTop: theme.spacing(2),
+    marginRight: theme.spacing(4),
   },
   link: {
     textDecoration: 'none',
@@ -33,8 +33,8 @@ const mystyles = theme => ({
   },
   chip: {
     fontSize: '20px',
-    marginRight: theme.spacing.unit * 2,
-    marginTop: theme.spacing.unit * 2,
+    marginRight: theme.spacing(2),
+    marginTop: theme.spacing(2),
     background: 'orange',
   },
 })
@@ -114,7 +114,7 @@ class Projects extends Component {
                 </Typography>
                 <Grid
                   container
-                  spacing={24}
+                  spacing={2}
                   justify="center"
                   alignItems="center"
                 >
@@ -123,7 +123,10 @@ class Projects extends Component {
                     onClick={() => this.onClickLeft(nodes.length)}
                     style={{ textAlign: 'center' }}
                   >
-                    <i className="fas fa-angle-left" />
+                    <i
+                      className="fas fa-angle-left"
+                      style={{ margin: '1em' }}
+                    />
                   </Grid>
                   <Grid item xs={12} sm={10} md={8}>
                     <Transition
@@ -181,7 +184,10 @@ class Projects extends Component {
                     onClick={() => this.onClickRight(nodes.length)}
                     style={{ textAlign: 'center' }}
                   >
-                    <i className="fas fa-angle-right" />
+                    <i
+                      className="fas fa-angle-right"
+                      style={{ margin: '1em' }}
+                    />
                   </Grid>
                 </Grid>
               </div>

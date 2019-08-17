@@ -6,7 +6,6 @@ import Landing from '../components/landing'
 import Projects from '../components/projects'
 import Resume from '../components/resume'
 import MyTools from '../components/mytools'
-import withRoot from '../withRoot'
 
 const IndexPage = () => (
   <Layout>
@@ -30,4 +29,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default withRoot(IndexPage)
+export default IndexPage

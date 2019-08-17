@@ -34,7 +34,7 @@ export default props => (
           >
             My Tools
           </Typography>
-          <Grid container spacing={24} alignItems="center" justify="center">
+          <Grid container spacing={2} alignItems="center" justify="center">
             <Lightbox logoImages={data.logoImages.edges} />
           </Grid>
         </Container>

@@ -29,10 +29,10 @@ export default function sidedrawer() {
             >
               Home
             </Typography>
-            <Divider />
+            <Divider style={{ backgroundColor: 'white' }} />
             <Typography
               component={Link}
-              to="#projects"
+              to="/#projects"
               variant="h4"
               style={{
                 marginTop: '0.2em',
@@ -44,10 +44,10 @@ export default function sidedrawer() {
             >
               Projects
             </Typography>
-            <Divider />
+            <Divider style={{ backgroundColor: 'white' }} />
             <Typography
               component={Link}
-              to="#experience"
+              to="/#experience"
               variant="h4"
               style={{
                 marginTop: '0.2em',
@@ -59,10 +59,10 @@ export default function sidedrawer() {
             >
               Experience
             </Typography>
-            <Divider />
+            <Divider style={{ backgroundColor: 'white' }} />
             <Typography
               component={Link}
-              to="#mytools"
+              to="/#mytools"
               variant="h4"
               style={{
                 marginTop: '0.2em',
@@ -74,6 +74,7 @@ export default function sidedrawer() {
             >
               Tools
             </Typography>
+            <Divider style={{ backgroundColor: 'white' }} />
           </div>
         }
         open={sideBar}
