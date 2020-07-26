@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Sidebar from 'react-sidebar'
 import Logo from '../logo.png'
 
-export default function sidedrawer() {
+const Sidedrawer = () => {
   const [sideBar, setSideBar] = useState(false)
   return (
     <div style={{ textAlign: 'center' }}>
@@ -105,3 +105,5 @@ export default function sidedrawer() {
     </div>
   )
 }
+
+export default Sidedrawer

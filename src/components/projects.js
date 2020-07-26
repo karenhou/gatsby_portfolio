@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import Container from './container'
+import MyContainer from './container'
 import { Transition } from 'react-spring'
 import { Chip, Grid, Typography, Paper } from '@material-ui/core'
 import { StaticQuery, graphql } from 'gatsby'
@@ -79,17 +79,20 @@ class Projects extends Component {
         query={graphql`
           query {
             github {
-              repositoryOwner(login: "karenhou") {
-                pinnedRepositories(first: 6) {
+              user(login: "karenhou") {
+                pinnedItems(first: 6, types: REPOSITORY) {
                   nodes {
-                    name
-                    description
-                    url
-                    homepageUrl
-                    repositoryTopics(first: 5) {
-                      nodes {
-                        topic {
-                          name
+                    ... on GitHub_Repository {
+                      id
+                      name
+                      description
+                      homepageUrl
+                      url
+                      repositoryTopics(first: 5) {
+                        nodes {
+                          topic {
+                            name
+                          }
                         }
                       }
                     }
@@ -100,9 +103,10 @@ class Projects extends Component {
           }
         `}
         render={data => {
-          const { nodes } = data.github.repositoryOwner.pinnedRepositories
+          const { nodes } = data.github.user.pinnedItems
+
           return (
-            <Container id="projects">
+            <MyContainer id="projects">
               <div className={classes.wrapper}>
                 <Typography
                   id="projects"
@@ -191,7 +195,7 @@ class Projects extends Component {
                   </Grid>
                 </Grid>
               </div>
-            </Container>
+            </MyContainer>
           )
         }}
       />
