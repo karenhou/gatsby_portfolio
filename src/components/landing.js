@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container from './container'
+import MyContainer from './container'
 import Typography from '@material-ui/core/Typography'
 import { Spring, config } from 'react-spring'
 import Typist from 'react-typist'
@@ -37,7 +37,7 @@ const Background = styled.div`
 const Landing = () => {
   return (
     <Background>
-      <Container>
+      <MyContainer>
         <ViewHeight>
           <Spring
             id="home"
@@ -105,7 +105,7 @@ const Landing = () => {
             </Typography>
           </Typist>
         </ViewHeight>
-      </Container>
+      </MyContainer>
     </Background>
   )
 }
